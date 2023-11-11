@@ -1,7 +1,7 @@
 import cv2
 from cvzone.HandTrackingModule import HandDetector
 import numpy as np
-import os
+from os import listdir,path,mkdir
 import traceback
 
 
@@ -9,9 +9,9 @@ import traceback
 capture = cv2.VideoCapture(0)
 hd = HandDetector(maxHands=1)
 hd2 = HandDetector(maxHands=1)
-if not os.path.exists("dataset"):
-    os.mkdir("dataset")
-count = len(os.listdir("dataset"))
+if not path.exists("dataset"):
+    mkdir("dataset")
+count = len(listdir("dataset"))
 
 c_dir = 'A'
 
@@ -21,7 +21,7 @@ flag=False
 suv=0
 
 white=np.ones((400,400),np.uint8)*255
-cv2.imwrite("assets/",white)
+cv2.imwrite("assets/white.jpg",white)
 
 
 while True:
@@ -32,7 +32,7 @@ while True:
         white = cv2.imread("assets/white.jpg")
 
         if hands:
-            hand = hands[0]
+            hand = hands[0][0]
             x, y, w, h = hand['bbox']
             image =np.array( frame[y - offset:y + h + offset, x - offset:x + w + offset])
 
@@ -70,7 +70,7 @@ while True:
 
         frame = cv2.putText(frame, "dir=" + str(c_dir) + "  count=" + str(count), (50,50),
                             cv2.FONT_HERSHEY_SIMPLEX,
-                            1, (255, 0, 0), 1, cv2.LINE_AA)
+                            1, (0, 255, 0), 1, cv2.LINE_AA)
         cv2.imshow("frame", frame)
         interrupt = cv2.waitKey(1)
         if interrupt & 0xFF == 27:
@@ -82,7 +82,7 @@ while True:
             if ord(c_dir)==ord('Z')+1:
                 c_dir='A'
             flag = False
-            count = len(os.listdir("AtoZ" + (c_dir) + "/"))
+            count = len(listdir("AtoZ" + (c_dir) + "/"))
 
         if interrupt & 0xFF == ord('a'):
             if flag:
