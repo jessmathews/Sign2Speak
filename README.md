@@ -13,7 +13,7 @@ The World Health Organisation stated that approximately 70 million people in the
 check our project [here](https://github.com/jessmathews/LinguaMotion/projects?query=is%3Aopen)
 
 
-<img src="https://github.com/Adwaith187/LinguaMotion/blob/main/logo.jpg" width="80px" height="80px"/>
+<img src="https://github.com/Adwaith187/LinguaMotion/blob/main/logo.jpg" width="120px" height="120px"/>
 
 
 
