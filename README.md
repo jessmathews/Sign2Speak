@@ -19,16 +19,11 @@ The future prospects of sign language to text converters looks promising.Advance
 Integration into various devices and platforms could make sign language more accessible globally,fostering inclusivity and breaking communication barriers.Ongoig research and development are likely to refine these technologies ,making them more user-friendly and widely adopted.
 
 ## Built with:
- - Canva
- 
- - Github
- 
+ - opencv
  - python
- 
- - Mediapipe
- 
- - Streamlit
- 
- - Keras
+ - tkinter
+ - tensorflow
+ - keras
+ - Canva
 
 
