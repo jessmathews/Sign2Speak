@@ -1,3 +1,4 @@
+<img src="https://github.com/Adwaith187/LinguaMotion/blob/main/logo.jpg" width="120px" height="120px"/>
 
 # **Sign2Speak(S2S)**-*Empowering Silence*
 *Sign language to text and audio with Generative AI.*
@@ -11,11 +12,6 @@ The World Health Organisation stated that approximately 70 million people in the
  Our project revolves around building a sign language to text and speech converter.It will implement features of Machine Learning and generative AI to take Sign Language as the input using the Computer camera and converts the given input to text and then to speech instataneously
 
 check our project [here](https://github.com/jessmathews/LinguaMotion/projects?query=is%3Aopen)
-
-
-<img src="https://github.com/Adwaith187/LinguaMotion/blob/main/logo.jpg" width="120px" height="120px"/>
-
-
 
 ## Future Prospects
 The future prospects of sign language to text converters looks promising.Advances in machine learning and computer vision can enhance accuracy,enabling seamless communication between deaf and hearing communities.
