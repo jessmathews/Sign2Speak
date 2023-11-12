@@ -2,16 +2,15 @@ import cv2
 from cvzone.HandTrackingModule import HandDetector
 import numpy as np
 from os import listdir,path,mkdir
-import traceback
 
 
 
 capture = cv2.VideoCapture(0)
 hd = HandDetector(maxHands=1)
 hd2 = HandDetector(maxHands=1)
-if not path.exists("dataset"):
-    mkdir("dataset")
-count = len(listdir("dataset"))
+if not path.exists("data"):
+    mkdir("data")
+count = len(listdir("data"))
 
 c_dir = 'A'
 
@@ -28,7 +27,7 @@ while True:
     try:
         _, frame = capture.read()
         frame = cv2.flip(frame, 1)
-        hands= hd.findHands(frame, draw=False, flipType=True)
+        hands= hd.findHands(frame, draw=True, flipType=False)
         white = cv2.imread("assets/white.jpg")
 
         if hands:
@@ -75,39 +74,8 @@ while True:
         interrupt = cv2.waitKey(1)
         if interrupt & 0xFF == 27:
             break
-
-
-        if interrupt & 0xFF == ord('n'):
-            c_dir = chr(ord(c_dir)+1)
-            if ord(c_dir)==ord('Z')+1:
-                c_dir='A'
-            flag = False
-            count = len(listdir("AtoZ" + (c_dir) + "/"))
-
-        if interrupt & 0xFF == ord('a'):
-            if flag:
-                flag=False
-            else:
-                suv=0
-                flag=True
-
-        print("=====",flag)
-        if flag==True:
-
-            if suv==180:
-                flag=False
-            if step%3==0:
-                cv2.imwrite("AtoZ/" + (c_dir) + "/" + str(count) + ".jpg",
-                            skeleton1)
-
-                count += 1
-                suv += 1
-            step+=1
-
-
-
-    except Exception:
-        print("==",traceback.format_exc() )
+    except Exception as e:
+        print(e)
 
 capture.release()
 cv2.destroyAllWindows()
